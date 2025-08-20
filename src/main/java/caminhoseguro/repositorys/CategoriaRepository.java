@@ -1,18 +1,11 @@
 package caminhoseguro.repositorys;
 
-import java.util.Optional;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import caminhoseguro.entitys.Categoria;
-import caminhoseguro.services.List;
 
-public interface CategoriaRepository {
-
-    Object save = null;
-
-    Optional<Categoria> findById(Object categoriaId);
-
-    List<Categoria> findAll();
-
-    Categoria save(Categoria categoria);
+@Repository
+public interface CategoriaRepository  extends JpaRepository<Categoria, Long> {
 
 }
