@@ -1,12 +1,32 @@
 package caminhoseguro.services;
 
-import caminhoseguro.entitys.Categoria;
+import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import caminhoseguro.entitys.Categoria;
+import caminhoseguro.repositorys.CategoriaRepository;
+
+@Service
 public class CategoriaServico {
 
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    // Listar todas as categorias
+    public List<Categoria> listarTodos() {
+        return categoriaRepository.findAll();
+    }
+
+    // Salvar uma categoria
     public Categoria salvar(Categoria categoria) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'salvar'");
+        return categoriaRepository.save(categoria);
+    }
+
+    public Optional<Categoria> findById(Long categoriaId) {
+        return categoriaRepository.findById(categoriaId);
     }
 
 }
