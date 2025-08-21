@@ -35,7 +35,7 @@ public class ProdutoServico {
         Produto newProduto = new Produto();
 
         //Procurar a categoria
-        Optional<Categoria> categoria = categoriaRepository.findById(produtoRequest.getCategoriaId());
+        Optional<Categoria> categoria = categoriaRepository.findById((Long) produtoRequest.getCategoriaId());
         
         if (categoria.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("A categoria com o ID " + produtoRequest.getCategoriaId() + " não foi encontrada.");
